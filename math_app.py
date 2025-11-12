@@ -37,6 +37,10 @@ quit = False
 while not quit:
     answers = []
     task = provide_task(tasks)
+
+    #clear messages from assistants msg history??
+    assistant.clear_msg_history()
+
     print('Try to solve the following task. If you need help type "help" or "h"')
     print(task[1])
     while True:
@@ -47,8 +51,9 @@ while not quit:
             break
 
         if answers[-1].lower() in ['h', 'help']:
-            print(assistant.get_response(answers[-1], task, answers[0:-1]))
-            answers.pop() #remove the query
+            help_msg = input('What do you need help with?')
+            print(assistant.get_response(help_msg, task, answers[0:-1]))
+            answers.pop() #remove the help call from answers
             print('Try again!')
             break
 
