@@ -22,7 +22,8 @@ def check_answer(task, answer:str) -> bool:
     return False
 
 # create assitant
-assistant = Assistant('openai')
+assistant = Assistant('ollama')
+#assistant = Assistant('openai')
 #ids of previous tasks
 prev_tasks = []
 
@@ -51,7 +52,7 @@ while not quit:
             break
 
         if answers[-1].lower() in ['h', 'help']:
-            help_msg = input('What do you need help with?')
+            help_msg = input('What do you need help with?\n>>>')
             print(assistant.get_response(help_msg, task, answers[0:-1]))
             answers.pop() #remove the help call from answers
             print('Try again!')
