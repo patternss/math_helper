@@ -1,6 +1,8 @@
 # math_helper
 LLM based math helper that supports the student with math tasks. 
 
+## Note:
+    - ollama uses a local setup and models need to be pulled before use 
 ## functionality: 
 - provide the user with math tasks and check the answer
 - process user input - if user asks for help, create a helpful answer
